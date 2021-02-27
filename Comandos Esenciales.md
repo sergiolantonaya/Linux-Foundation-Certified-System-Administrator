@@ -1,4 +1,4 @@
-# Essential Commands
+# Comandos Esenciales
 
 ## Log into local & remote graphical and text mode consoles
 
