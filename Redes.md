@@ -6,7 +6,7 @@
 
 #### IP
 
-**`ip`** es el princiapl comando para gestionar la configuración de red. Algunos ejemplos de uso son:
+**`ip`** es el principal comando para gestionar la configuración de red. Algunos ejemplos de uso del comando **`ip`** son:
 
     `user@ubuntu:/$ ip addr show`
 
