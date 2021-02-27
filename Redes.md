@@ -8,11 +8,11 @@
 
 **`ip`** es el principal comando para gestionar la configuración de red. Algunos ejemplos de uso del comando **`ip`** son:
 
-    `user@ubuntu:/$ ip addr show`
+    user@ubuntu:/$ ip addr show
 
-    `user@ubuntu:/$ ip link set eth0 down` 
+    user@ubuntu:/$ ip link set eth0 down
     
-    `user@ubuntu:/$ ip addr add 192.168.0.2/24 dev eth0`
+    user@ubuntu:/$ ip addr add 192.168.0.2/24 dev eth0
 
 #### NETPLAN
 
