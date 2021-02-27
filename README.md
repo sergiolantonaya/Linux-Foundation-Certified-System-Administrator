@@ -10,7 +10,7 @@ El exámen evalúa 6 dominios y grupos de competencias.
 
 El porcentaje incluido entre paréntesis refleja el porcentaje de preguntas asociado a cada dominio y grupo de competencias que forman parte del examen de certificación:
 
-1. [Comandos Esenciales (25%)](EssentialCommands.md)
+1. [Comandos Esenciales (25%)](Comandos Esenciales.md)
 
 2. [Sistemas en Ejecución (20%)](OperationofRunningSystems.md)
 
