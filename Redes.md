@@ -1,38 +1,56 @@
-# Networking
+# Linux Foundation Certified System Administrator
 
-## Configure networking and hostname resolution statically or dynamically
+## Redes
 
-* `ip addr show`
+### 1. Configuración de redes y resolución de nombres de forma estática y dinámica (Configure networking and hostname resolution statically or dynamically)
 
-  Show IP addresses configuration
+El principal comando para evaluar y modificar la configuración de red es **ip**. Algunos de los usos mas habituales del comando **ip** son:
 
-  * `ip a s` 
+* **`ip`** : comando para gestionar la configuración de red. Algunos ejemplos de uso son:
 
-    Short syntax
+  `user@ubuntu:/$ ip addr show`
 
-* `nmtui`
+  `user@ubuntu:/$ ip link set eth0 down` 
+  
+  `user@ubuntu:/$ ip addr add 192.168.0.2/24 dev eth0`
 
-  *Network Manager Text User Interface* - Graphical interface to manage network connections configuration
+* **`netplan`**: Esta es la principal herramienta para modificar la configuración de red. Para poder trabajar con **netplan** es necesario modificar el contenido del siguiente fichero:
 
-  * Manual means that IP will be configured manually
-  * Automatic means that will be used DHCP protocol
-  * **NOTE**: IP must be inserted with syntax IP/NETMASK (e.t. 192.168.0.2/24)
+  `/etc/netplan/00-installer-config.yaml`
+  
+A continuación se muestra un ejemplo del contenido incluido en los ficheros de configuración de la herramienta **netplan**:
 
+```bash
+  # This is the network config written by 'subiquity'
+  network:
+    ethernets:
+      eth0:
+        dhcp4: true
+    version: 2
+```
 
-* All network configuration will be stored in `/etc/sysconfig/network-scripts`
+Una vez que el contenido del fichero ha sido modificado con la configuración deseada, es necesario aplicar los cambios al sistema mediante los comandos asociados a la herramienta **netplan**:
 
-* If there is need to change IP configuration of an interface without using `nmtui` remember to shutdown interface, change IP, restart interface
-  * `ip link set eth0 down` Shutdown interface eth0
-  * `ip addr add 192.168.0.2/24 dev eth0` Assign IP 192.168.0.2/24 to interface eth0
-  * `ip link set eth0 up` Restart interface eth0
+```bash
+  user@ubuntu:/$ sudo netplan generate
+  user@ubuntu:/$ sudo netplan apply
+```
 
+* **`/etc/hostname`**: Este fichero contiene en nombre asignado a la máquina. Es posible conocer el nombre de la máquina de las formas siguientes:
+  
+  `user@ubuntu:/$ cat /etc/hostname`
+   
+  `user@ubuntu:/$ hostname`
+  
+  `user@ubuntu:/$ hostnamectl`
+  
+Para modificar el nombre de la máquina es posible emplear uno de los métodos siguientes:
 
+  Editar el contenido del fichero `/etc/hostname`.
+  
+  Ejecutar el comando `hostnamectl set-hostname hostname`.
 
-* The hostname can be changed editing `/etc/hostname`
-
-  * `hostname` show current hostname
-  * Alternative: `hostnamectl set-hostname your-new-hostname` set hostname equal to your-new-hostname
-  * Reboot is required to see new hostname applied
+Es necesario reiniciar la máquina para que los cambios sean aplicados.
 
 * In `/etc/hosts` is configured a name resolution that take precedence of DNS 
 
@@ -44,6 +62,8 @@
 
   * It is possible to insert more than one *nameserver* as backup (primary and secondary)
 
+### 2. Configurar los servicios de red para iniciarse automáticamente en el arranque (Configure network services to start automatically at boot)
+
 ## Configure network services to start automatically at boot
 
 Network Manager
@@ -53,18 +73,10 @@ Network Manager
 * `systemctl stop NetworkManager.service`
 * `systemctl disable NetworkManager.service`
 
-
-
 Network
 
 * `systemctl status network` to check network configuration status
 * `systemctl restart network` to reload network configuration
-
-
-
-References:
-
-* [https://unix.stackexchange.com/questions/449186/what-is-the-usage-of-networkmanager-in-centos-rhel7](https://unix.stackexchange.com/questions/449186/what-is-the-usage-of-networkmanager-in-centos-rhel7)
 
 ## Implement packet filtering
 
@@ -77,8 +89,6 @@ References:
     * *OUTPUT* that contains rules applied to packets that leave the system
 * Another chain can be used if system is configured as router: *FORWARD*
 * Finally there are other two chains: PREROUTING, POSTROUTING
-
-![inode](Pictures/netfilter.png)
 
 * Picture show the order with which the various chains are valued. The arrows indicate the route of the packages:
 
@@ -100,8 +110,6 @@ References:
 * `firewalld` is a service that use iptables to manage firewalls rules
 
 * `firewall-cmd` is the command to manage firewalld
-
-
 
 Firewalld
 
@@ -127,8 +135,6 @@ Firewalld
   * Add a firewall rule using iptables syntax
   * This add permanently a rule as first in OUTPUT chain to allow connections to TCP destination port 80
 
-
-
 iptables
 
 * The `firewalld` daemon can be substitute with `iptables` daemon (the configuration that was in place until recently)
@@ -140,8 +146,6 @@ iptables
   * `systemctl disable firewalld`
   * `yum -y install iptables-services`
   * `systemctl enable iptables`
-
-
 
 * With this configuration rules must be inserted
 * `iptables -P INPUT DROP`
@@ -176,31 +180,17 @@ iptables
 * `iptable -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT`
   * This is a rule that is used to ACCEPT all traffic generated as a response of an inbound connection that was accepted. E.g. if incoming traffic for web server on port 80 was accepted, this rule permits to response traffic to exit from system without inserting specific rules in OUTPUT chain
 
-
-
 * **NOTE** file `/etc/services` contains a list of well know ports with services name
-
-
-
-References:
-
-* [https://debian-handbook.info/browse/da-DK/stable/sect.firewall-packet-filtering.html](https://debian-handbook.info/browse/da-DK/stable/sect.firewall-packet-filtering.html)
-
-
 
 ## Start, stop, and check the status of network services
 
 * Network services are controlled as other daemon with `systemctl` command
   * `systemctl status servicename`
 
-
-
 * With `netstat` is it possible list internet port opened by a process
   * `yum -y install net-tools`
   * `netstat -tln`
     * Show TCP port opened by processes
-
-
 
 ## Statically route IP traffic
 
@@ -224,12 +214,6 @@ References:
   * To make configuration persistent
     * `echo net.ipv4.ip_forward = 1 > /etc/sysctl.d/ipv4.conf`
 
-References:
-
-* [https://my.esecuredata.com/index.php?/knowledgebase/article/2/add-a-static-route-on-centos](https://my.esecuredata.com/index.php?/knowledgebase/article/2/add-a-static-route-on-centos)
-
-
-
 ## Synchronize time using other network peers
 
 * In time synchronization the concept of Stratum define the accuracy of server time.
@@ -239,8 +223,6 @@ References:
 * The upper limit for Stratum is 15
 * Stratum 16 is used to indicate that a device is unsynchronized
 * Remember that time synchronization between servers is a slowly process
-
-
 
 CHRONYD
 
