@@ -14,10 +14,10 @@ El porcentaje incluido entre paréntesis refleja el porcentaje de preguntas asoc
 
 2. [Operation of Running Systems (20%)](OperationofRunningSystems.md)
 
-3. [User and Group Management - 10%](UserandGroupManagement.md)
+3. [User and Group Management (10%)](UserandGroupManagement.md)
 
-4. [Networking - 12%](Networking.md)
+4. [Networking (12%)](Networking.md)
 
-5. [Service Configuration - 20%](ServiceConfiguration.md)
+5. [Service Configuration (20%)](ServiceConfiguration.md)
 
-6. [Storage Management - 13%](StorageManagement.md)
+6. [Storage Management (13%)](StorageManagement.md)
