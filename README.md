@@ -12,7 +12,7 @@ El porcentaje incluido entre paréntesis refleja el porcentaje de preguntas asoc
 
 1. [Comandos Esenciales (25%)](ComandosEsenciales.md)
 
-2. [Sistemas en Ejecución (20%)](SistemasEnEjecución.md.md)
+2. [Sistemas en Ejecución (20%)](SistemasEnEjecución.md)
 
 3. [Gestión de Usuarios y Grupos (10%)](GestiónDeUsuariosYGrupos.md)
 
