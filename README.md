@@ -1,20 +1,21 @@
 # Linux Foundation Certified System Administrator (LFCS) 
 
-Notes for [LFCS exam preparation:
+Notas para la preparación de la certificación Linux Foundation Certified System Administrator (LFCS):
+
 https://training.linuxfoundation.org/certification/linux-foundation-certified-sysadmin-lfcs/
 
-## Domains & Competencies
+## Dominios y Competencias
 
-Included contents:
+El exámen evalúa 6 áreas de conocimientos. El porcentaje incluido entre paréntesis refleja el porcentaje de preguntas asociado a cada dominio que son incluidas en el examen:
 
-[Essential Commands - 25%](EssentialCommands.md)
+1. [Essential Commands (25%)](EssentialCommands.md)
 
-[Operation of Running Systems - 20%](OperationofRunningSystems.md)
+2. [Operation of Running Systems (20%)](OperationofRunningSystems.md)
 
-[User and Group Management - 10%](UserandGroupManagement.md)
+3. [User and Group Management - 10%](UserandGroupManagement.md)
 
-[Networking - 12%](Networking.md)
+4. [Networking - 12%](Networking.md)
 
-[Service Configuration - 20%](ServiceConfiguration.md)
+5. [Service Configuration - 20%](ServiceConfiguration.md)
 
-[Storage Management - 13%](StorageManagement.md)
+6. [Storage Management - 13%](StorageManagement.md)
