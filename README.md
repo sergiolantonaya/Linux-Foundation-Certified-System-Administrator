@@ -6,7 +6,9 @@ https://training.linuxfoundation.org/certification/linux-foundation-certified-sy
 
 ## Dominios y Competencias
 
-El exámen evalúa 6 áreas de conocimientos. El porcentaje incluido entre paréntesis refleja el porcentaje de preguntas asociado a cada dominio que son incluidas en el examen:
+El exámen evalúa 6 dominios y grupos de competencias. 
+
+El porcentaje incluido entre paréntesis refleja el porcentaje de preguntas asociado a cada dominio y grupo de competencias que forman parte del examen de certificación:
 
 1. [Essential Commands (25%)](EssentialCommands.md)
 
