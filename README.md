@@ -7,7 +7,7 @@ https://training.linuxfoundation.org/certification/linux-foundation-certified-sy
 
 Included contents:
 
-[Essential Commands - 25%] (EssentialCommands.md)
+[Essential Commands - 25%](EssentialCommands.md)
 
 [Operation of Running Systems - 20%](OperationofRunningSystems.md)
 
