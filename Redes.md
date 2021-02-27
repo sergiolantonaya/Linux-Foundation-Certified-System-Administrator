@@ -23,19 +23,19 @@
 A continuación se muestra un ejemplo del contenido incluido en los ficheros de configuración de la herramienta **netplan**:
 
 ```bash
-  # This is the network config written by 'subiquity'
-  network:
+# This is the network config written by 'subiquity'
+network:
     ethernets:
-      eth0:
-        dhcp4: true
+        eth0:
+            dhcp4: true
     version: 2
 ```
 
 Una vez que el contenido del fichero ha sido modificado con la configuración deseada, es necesario aplicar los cambios al sistema mediante los comandos asociados a la herramienta **netplan**:
 
 ```bash
-  user@ubuntu:/$ sudo netplan generate
-  user@ubuntu:/$ sudo netplan apply
+user@ubuntu:/$ sudo netplan generate
+user@ubuntu:/$ sudo netplan apply
 ```
 
 #### HOSTNAME
