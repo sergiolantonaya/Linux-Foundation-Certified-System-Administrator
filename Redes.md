@@ -11,7 +11,7 @@ El principal comando para evaluar y modificar la configuración de red es **ip**
     `user@ubuntu:/$ ip addr show`
 
     `user@ubuntu:/$ ip link set eth0 down` 
-  
+    
     `user@ubuntu:/$ ip addr add 192.168.0.2/24 dev eth0`
 
 * **`netplan`**: Esta es la principal herramienta para modificar la configuración de red. Para poder trabajar con **netplan** es necesario modificar el contenido del siguiente fichero:
