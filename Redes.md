@@ -4,9 +4,9 @@
 
 ### 1. Configuración de redes y resolución de nombres de forma estática y dinámica (Configure networking and hostname resolution statically or dynamically)
 
-El principal comando para evaluar y modificar la configuración de red es **ip**. Algunos de los usos mas habituales del comando **ip** son:
+#### IP
 
-* **`ip`** : comando para gestionar la configuración de red. Algunos ejemplos de uso son:
+**`ip`** es el princiapl comando para gestionar la configuración de red. Algunos ejemplos de uso son:
 
     `user@ubuntu:/$ ip addr show`
 
@@ -14,7 +14,9 @@ El principal comando para evaluar y modificar la configuración de red es **ip**
     
     `user@ubuntu:/$ ip addr add 192.168.0.2/24 dev eth0`
 
-* **`netplan`**: Esta es la principal herramienta para modificar la configuración de red. Para poder trabajar con **netplan** es necesario modificar el contenido del siguiente fichero:
+#### NETPLAN
+
+**`netplan`** es la principal herramienta para modificar la configuración de red. Para poder trabajar con **netplan** es necesario modificar el contenido del siguiente fichero:
 
   `/etc/netplan/00-installer-config.yaml`
   
@@ -36,7 +38,9 @@ Una vez que el contenido del fichero ha sido modificado con la configuración de
   user@ubuntu:/$ sudo netplan apply
 ```
 
-* **`/etc/hostname`**: Este fichero contiene en nombre asignado a la máquina. Es posible conocer el nombre de la máquina de las formas siguientes:
+#### HOSTNAME
+
+Es posible conocer el nombre asignado a una máquina de las formas siguientes:
   
   `user@ubuntu:/$ cat /etc/hostname`
    
@@ -52,15 +56,35 @@ Para modificar el nombre de la máquina es posible emplear uno de los métodos s
 
 Es necesario reiniciar la máquina para que los cambios sean aplicados.
 
-* In `/etc/hosts` is configured a name resolution that take precedence of DNS 
+#### HOSTS
 
-  * It contains static DNS entry
+El fichero `/etc/hosts` permite realizar asignaciones estáticas entre nombres de máquina y direcciones IP, siendo este un mecanismo de resolución de nombres previo al sistema DNS. 
 
-  * It is possible add hostname to row for 127.0.0.1 resolution, or insert a static IP configured on principal interface equal to hostname
+A continuación se muestra un contenido de ejemplo para el fichero `/etc/hosts` en una máquina llamada `ubuntu`:
 
-*  In `/etc/resolv.conf` there are configured DNS servers entry
+```bash
+    127.0.0.1 localhost
+    127.0.1.1 ubuntu
 
-  * It is possible to insert more than one *nameserver* as backup (primary and secondary)
+    # The following lines are desirable for IPv6 capable hosts
+    ::1     ip6-localhost ip6-loopback
+    fe00::0 ip6-localnet
+    ff00::0 ip6-mcastprefix
+    ff02::1 ip6-allnodes
+    ff02::2 ip6-allrouters
+```
+
+El fichero `/etc/resolv.conf` contiene entradas para los servidores DNS que se desean emplear durante el proceso de resolución de nombres.
+
+A continuación se muestra un contenido de ejemplo para el fichero `/etc/resolv.conf`:
+
+```bash  
+    nameserver 127.0.0.53
+    options edns0
+    search mshome.net
+```
+
+Es posible añadir mas de una entrada `nameserver`como mecanismo de respaldo, contando asi con una servidor DNS primario y otro servidor DNS secundario.
 
 ### 2. Configurar los servicios de red para iniciarse automáticamente en el arranque (Configure network services to start automatically at boot)
 
