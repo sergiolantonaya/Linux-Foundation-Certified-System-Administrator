@@ -4,11 +4,13 @@ Notas para la preparación de la certificación Linux Foundation Certified Syste
 
 https://training.linuxfoundation.org/certification/linux-foundation-certified-sysadmin-lfcs/
 
+Los ejemplos incluidos se basan en el sistema Ubuntu 18.04.
+
 ## Dominios y Competencias
 
 El exámen evalúa 6 dominios y grupos de competencias. 
 
-El porcentaje incluido entre paréntesis refleja el porcentaje de preguntas asociado a cada dominio y grupo de competencias que forman parte del examen de certificación:
+El porcentaje incluido entre paréntesis refleja el porcentaje de preguntas asociado a cada dominio y grupo de competencias que forman parte del examen de certificación.
 
 1. [Comandos Esenciales (25%)](ComandosEsenciales.md)
 
