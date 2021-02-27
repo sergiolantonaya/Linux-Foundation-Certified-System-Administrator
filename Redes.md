@@ -35,6 +35,7 @@ Una vez que el contenido del fichero ha sido modificado con la configuración de
 
 ```bash
 user@ubuntu:/$ sudo netplan generate
+
 user@ubuntu:/$ sudo netplan apply
 ```
 
@@ -42,11 +43,11 @@ user@ubuntu:/$ sudo netplan apply
 
 Es posible conocer el nombre asignado a una máquina de las formas siguientes:
   
-  `user@ubuntu:/$ cat /etc/hostname`
+`user@ubuntu:/$ cat /etc/hostname`
    
-  `user@ubuntu:/$ hostname`
+`user@ubuntu:/$ hostname`
   
-  `user@ubuntu:/$ hostnamectl`
+`user@ubuntu:/$ hostnamectl`
   
 Para modificar el nombre de la máquina es posible emplear uno de los métodos siguientes:
 
@@ -63,15 +64,15 @@ El fichero `/etc/hosts` permite realizar asignaciones estáticas entre nombres d
 A continuación se muestra un contenido de ejemplo para el fichero `/etc/hosts` en una máquina llamada `ubuntu`:
 
 ```bash
-    127.0.0.1 localhost
-    127.0.1.1 ubuntu
+127.0.0.1 localhost
+127.0.1.1 ubuntu
 
-    # The following lines are desirable for IPv6 capable hosts
-    ::1     ip6-localhost ip6-loopback
-    fe00::0 ip6-localnet
-    ff00::0 ip6-mcastprefix
-    ff02::1 ip6-allnodes
-    ff02::2 ip6-allrouters
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
 ```
 
 El fichero `/etc/resolv.conf` contiene entradas para los servidores DNS que se desean emplear durante el proceso de resolución de nombres.
@@ -79,9 +80,9 @@ El fichero `/etc/resolv.conf` contiene entradas para los servidores DNS que se d
 A continuación se muestra un contenido de ejemplo para el fichero `/etc/resolv.conf`:
 
 ```bash  
-    nameserver 127.0.0.53
-    options edns0
-    search mshome.net
+nameserver 127.0.0.53
+options edns0
+search mshome.net
 ```
 
 Es posible añadir mas de una entrada `nameserver`como mecanismo de respaldo, contando asi con una servidor DNS primario y otro servidor DNS secundario.
