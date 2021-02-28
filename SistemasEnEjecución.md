@@ -1,4 +1,4 @@
-# Operation of Running Systems
+# Sistemas en Ejecución
 
 ## Boot, reboot, and shut down a system safely
 
