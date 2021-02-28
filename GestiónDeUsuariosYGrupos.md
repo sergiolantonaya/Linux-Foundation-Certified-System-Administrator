@@ -6,7 +6,13 @@
 
 A continuación se presentan los comandos requeridos para llevar a cabo las operaciones 
 
-* **`useradd`** : creación de usuarios.
+* **`useradd`** : creación de usuarios. Algunos de los parámetros mas importantes son:
+
+  -s :
+  
+  -m : 
+  
+  -p :
 
 * Add users
 
