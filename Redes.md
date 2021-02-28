@@ -89,9 +89,11 @@ Es posible añadir mas de una entrada `nameserver`como mecanismo de respaldo, co
 
 ### 2. Configurar los servicios de red para iniciarse automáticamente en el arranque (Configure network services to start automatically at boot)
 
-## Configure network services to start automatically at boot
+#### NETWORK MANAGER
 
-Network Manager
+La herramienta `network manager` es un servicio de red del sistema que permite administrar los dispositivos de red y las conexiones, asegurando al conectividad de la máquina siempre que sea posilble.
+
+La gestión de la red en los sistemas **Ubuntu** actuales es reponsabilidad del sistema interno `systemd` y de las herramientas asociadas `netplan` y `networkd`. Sin embargo, si la herrmienta `network manager` se encuentra instalada, está tomará el control de todos los dispositivos de red y centralizará su gestión en un fichero de configuración.
 
 * Its purpose is to automatically detect, configure, and connect to a network whether wired or wireless such as VPN, DNS, static routes, addresses, etc which is why you'll see #Configured by NetworkManager in /etc/resolv.conf, for example. Although it will prefer wired connections, it will pick the best known wireless connection and whichever it deems to be the most reliable. It will also switch over to wired automatically if it's there.
   It's not necessary and many (including me) disable it as most would rather manage their own network settings and don't need it done for them.
@@ -103,7 +105,7 @@ Network
 * `systemctl status network` to check network configuration status
 * `systemctl restart network` to reload network configuration
 
-## Implement packet filtering
+### 3. Implementar filtrados de paquetes (Implement packet filtering)
 
 * The firewall is managed by Kernel
 
