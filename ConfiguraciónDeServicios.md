@@ -1,4 +1,4 @@
-# Service Configuration
+# Configuración de Servicios
 
 ## Configure a caching DNS server
 
