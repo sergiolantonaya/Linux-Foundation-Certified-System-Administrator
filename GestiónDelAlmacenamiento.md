@@ -1,4 +1,4 @@
-# Storage Management
+# Gestión del Almacenamiento
 
 ## List, create, delete, and modify physical storage partitions
 
