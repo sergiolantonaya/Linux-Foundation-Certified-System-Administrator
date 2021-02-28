@@ -6,7 +6,7 @@
 
 A continuación se presentan los comandos requeridos para llevar a cabo las operaciones 
 
-useradd
+* **`useradd`** : creación de usuarios.
 
 * Add users
 
