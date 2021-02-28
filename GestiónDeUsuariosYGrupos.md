@@ -1,6 +1,10 @@
-# User and Group Management
+# Linux Foundation Certified System Administrator
 
-## Create, delete, and modify local user accounts
+## Gestión de Usuarios y Grupos
+
+### 1. Crear, eliminar y modificar cuentas de usuario (Create, delete, and modify local user accounts)
+
+A continuación se presentan los comandos requeridos para llevar a cabo las operaciones 
 
 useradd
 
@@ -118,8 +122,7 @@ chage
   * Set a date after which user will be locked
 
 
-
-## Create, delete, and modify local groups and group memberships
+### 2. Crear, eliminar y modificar grupos (Create, delete, and modify local groups and group memberships)
 
 groupadd
 
@@ -154,18 +157,18 @@ groupmod
 
 
 
-## Manage system-wide environment profiles
+### 3. Gestionar perfiles de sistema (Manage system-wide environment profiles)
 
 * The variable for all users are stored in `/etc/environment` 
 
 * The variable for a user are stored in his home directory in file `.bash_profile`
   * **NOTE**: It is an hidden file, it is visible only running `ls -la`
 
-## Manage template user environment
+### 4. Gestionar plantillas de usuario (Manage template user environment)
 
 * `/etc/skel` skeleton directory. <u>It's content will be copied in new user home directory</u>
 
-## Configure user resource limits
+### 5. Gestionar límites de recursos (Configure user resource limits)
 
 ulimit
 
@@ -193,11 +196,21 @@ ulimit
 * Limits will be enforced in next opened session
 * Also `ulimit` command can be used to change limits
 
-## Manage user privileges
+### 6. Gestionar privilegios de usuario (Manage user privileges)
 
-Refer to `sudo` configuration
+#### SUDO
 
-## Configure PAM
+Para asignar permisos de ejecución `sudo` a un usuario es necesario añadir dicho usuario al grupo `sudo`, para lo cual es necesario modificar el contenido del fichero `/etc/sudoers` añadiendo una línea para el usuario requerido de la siguiente forma:
+
+```bash
+user ALL=(ALL:ALL) ALL
+```
+
+Posteriormente es posible configurar el grupo secundario `sudo` para el mismo usuario mediante el siguiente comando:
+
+`sudo usermod -a -G sudo user`
+
+### 6. Configurar PAM (Configure PAM)
 
 * PAM = plugable authentication modules
 * A command/program can be PAM aware
