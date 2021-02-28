@@ -1,6 +1,6 @@
 # Comandos Esenciales
 
-## Log into local & remote graphical and text mode consoles
+## 1. Acceso a sistemas locales y remotos en modo consola y en modo gráfico. (Log into local & remote graphical and text mode consoles)
 
 Basic concept to know:
 
@@ -30,8 +30,6 @@ To summarize: A virtual console is a shell prompted in a non-graphical environme
   * When is executed it will substitute one of the text terminal provided by virtual console. In CentOS the terminal will be 1, in other system could be 7.
   * Some applications running inside X Windows System provide pseudo-terminal e.g. Konsole, Gnome Terminal
   * If graphical environment is not started, you can run command `startx` to execute it
-
-
 
 Log in:
 
