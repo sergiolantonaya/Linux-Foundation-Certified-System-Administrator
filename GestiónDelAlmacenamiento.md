@@ -1,8 +1,26 @@
-# Gestión del Almacenamiento
+# Linux Foundation Certified System Administrator
 
-## List, create, delete, and modify physical storage partitions
+## Gestión del Almacenamiento
 
-* `lsblk` lists all available disk devices plus available partitions
+### 1. Listar, crear, eliminar y modificar particiones fisicas (List, create, delete, and modify physical storage partitions)
+
+#### LSBLK
+
+Antes de comenzar a trabajar sobre el almacenamiento físico existente en una máquina Ubuntu, es recomendable conocer el estado vigente. Para ello es posible obtener un resumen del espacio disponible a través del comando `lsblk`.
+
+Este comando proporciona una listado de todos los dispositivos de almacenamiento disponibles, y las particiones incluidas en cada uno de dichos dispositivos.
+
+#### FDISK
+
+La herramienta `fdisk` es la herramienta principal para poder formatear dispositivos de almacenamiento.
+
+Si por ejemplo, conectamos un nuevo disco duro al sistema , y este recibe el nombre `/dev/sdb` es posible formatearlo mediante el siguiente comando:
+
+```bash
+fdisk /dev/sdb
+```
+
+En ese momento un asistente interactivo permitirá llevar a cabo las operaciones de formateo y particionado requeridas.
 
 * `fdisk` it is used to manage disk partition in MBR modality
 
@@ -22,7 +40,8 @@
 
   * `gdisk /dev/sda` -> `W` -> `Y`
 
-## Manage and configure LVM storage
+### 2. Gestionar y configurar almacenamiento LVM (Manage and configure LVM storage)
+
 
 * Before create a Logical Volume must be created in sequence a physical volume and after a volume group
 * A physical volume is a partition that can be part of volume group. Inside a volume group can be created logical volume
